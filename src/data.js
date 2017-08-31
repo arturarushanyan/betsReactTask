@@ -12,7 +12,7 @@ let Developers =  [
         id: "4756"
     },
     {
-        name: "Vahe",
+        name: "Vahan",
         id: "5854"
     },
     {
@@ -26,6 +26,10 @@ let Developers =  [
     {
         name: "Aram",
         id: "4447"
+    },
+    {
+        name: "Armen",
+        id: "4843"
     }
 ];
 
