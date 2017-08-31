@@ -1,41 +1,40 @@
 import React, { Component } from 'react';
 import Backlog from "./Components/Backlog";
 import Statistics from "./Components/Statistics";
+import generateNewTodo from "./generateNewTodo";
 import './App.css';
 
 class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            td011:{
-                id: 1001,
-                priority: 2,
-                title: 'asdf001',
-                desicription: "desc001",
-                assignee: "Artur",
-                completed: false
-            }
-        }
+            todos : []
+        };
     }
+
     componentDidMount(){
-        setInterval(()=>{
+        console.log("did mount working");
+        this.intervalID = setInterval(()=>{
             this.setState({
-                td011:{
-                    id: Math.random()
+                todos: [...this.state.todos, generateNewTodo()]
                 }
-            })
-        },3000)
+            );
+            console.log(this.state);
+        },3000);
+
     }
   render() {
     return (
       <div className="App">
-          <h2>{this.state.td011.id}</h2>
-        <Backlog taskID = {this.state.td011.id}/>
+          <h2>I'm Top Layer</h2>
+        <Backlog todos = {this.state.todos}/>
         <Statistics/>
       </div>
     );
   }
 }
+
+
 
 export default App;
 

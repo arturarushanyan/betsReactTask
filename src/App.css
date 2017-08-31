@@ -1,20 +1,24 @@
 .App {
   text-align: center;
-  background: red;
   height: 100%;
 }
 
 .backlog, .statistics {
   float: left;
-  width: 50%;
-  height: 100%;
+  width: calc(50% - 2px);
+  height: calc(100vh - 100px);
+  overflow-x: hidden;
+  overflow-y: auto;
   text-align: center;
+  border: 1px solid rebeccapurple;
+
 }
 
 ul{
   list-style: none;
-  padding: 0;
   border: 1px solid green;
-  width: 50%;
-  margin: 0 auto;
+  width: 35%;
+  margin: 10px auto;
+  padding: 10px;
+  text-align: left;
 }
