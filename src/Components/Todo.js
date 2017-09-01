@@ -5,23 +5,25 @@ export default class Todo extends Component{
         super(props);
     }
     render(){
-        let todos = this.props.todos;
-        let id = todos.map((todo)=>{
-            return todo.id;
+        let filteredTodos = this.props.todos.filter((todo) => {
+            return todo.completed === false;
+        }).sort((prev,next)=>{
+            return next.priority - prev.priority;
         });
-        console.log('from todo',todos);
-        console.log('from todo',id);
+
         return (
             <div>
                 {
-                    todos.map((todo)=>{
+                    filteredTodos.map((todo) => {
                         return (
-                            <ul className="todo" >
-                                <li>{`Title: ${todo.title}`}</li>
-                                <li>{`ID: ${todo.id}`}</li>
-                                <li>{`Priority ${todo.priority}`}</li>
-                                <li>{`AssigneeName: ${todo.assigneeName}`}</li>
-                                <li>{`AssingeeID: ${todo.assigneeID}`}</li>
+                            <ul className={todo.priority === 2 ? 'high':  todo.priority === 1 ? 'medium' : ''} >
+                                <TodoListItem listValue={`Title: ${todo.title}`}/>
+                                <TodoListItem listValue={`Desicription: ${todo.desicription}`}/>
+                                <TodoListItem listValue={`TodoID: ${todo.id}`}/>
+                                <TodoListItem listValue={`Priority ${todo.priority}`}/>
+                                <TodoListItem listValue={`AssigneeName: ${todo.assigneeName}`}/>
+                                <TodoListItem listValue={`AssingeeID: ${todo.assigneeID}`}/>
+                                <TodoListItem listValue={`Completed: ${todo.completed}`}/>
                             </ul>
                         )
                     })

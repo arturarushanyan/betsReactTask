@@ -5,10 +5,8 @@ export default class TodoListItem extends Component{
         super(props);
     }
     render(){
-        let todos = this.props.todos;
-        console.log('from todolistitem',todos);
         return (
-            <li className="todo-list-item">{this.props}</li>
+            <li>{this.props.listValue}</li>
         )
     }
 }

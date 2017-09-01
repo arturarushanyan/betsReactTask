@@ -36,3 +36,10 @@ render(){
     filtershit
     ul -> todolistitem
 }
+
+let arr = [{a: 'a', order: 0},{a: 'b', order: 0},{a: 'aa', order: 1},{a: 'po', order: 2}];
+let priorities = [0,1,2];
+
+priorities.map((priority)=>{
+    return arr.filter((item)=>{return item.order === priority});
+});

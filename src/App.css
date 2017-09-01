@@ -16,9 +16,19 @@
 
 ul{
   list-style: none;
-  border: 1px solid green;
+  border: 5px solid green;
   width: 35%;
   margin: 10px auto;
   padding: 10px;
   text-align: left;
+}
+ul.high{
+  border-color: red;
+}
+ul.medium{
+  border-color: yellow;
+}
+
+ul>li.completed{
+  background: greenyellow;
 }

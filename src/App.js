@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Backlog from "./Components/Backlog";
 import Statistics from "./Components/Statistics";
-import generateNewTodo from "./generateNewTodo";
+import generateNewTodo from "./helpers/generateNewTodo";
 import './App.css';
 
 class App extends Component {
@@ -10,18 +10,29 @@ class App extends Component {
         this.state = {
             todos : []
         };
+        this.count = 0;
     }
 
     componentDidMount(){
-        console.log("did mount working");
         this.intervalID = setInterval(()=>{
-            this.setState({
-                todos: [...this.state.todos, generateNewTodo()]
-                }
-            );
-            console.log(this.state);
+            this.count++;
+            if(this.count % 5 !== 0){
+                this.setState({
+                    todos: [...this.state.todos, generateNewTodo()]
+                    }
+                );
+            } else {
+                this.setState({
+                    todos: [...this.state.todos, ...this.state.todos[Math.floor(Math.random()*this.state.todos.length)].completed = true]
+                    });
+            }
+            console.log('state now',this.state);
         },3000);
 
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.intervalID);
     }
   render() {
     return (
