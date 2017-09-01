@@ -37,9 +37,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <h2>I'm Top Layer</h2>
+          <h2>Reactjs Autogenerate Todo List!</h2>
         <Backlog todos = {this.state.todos}/>
-        <Statistics/>
+        <Statistics todos = {this.state.todos}/>
       </div>
     );
   }

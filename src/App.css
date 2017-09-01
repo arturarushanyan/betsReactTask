@@ -32,3 +32,14 @@ ul.medium{
 ul>li.completed{
   background: greenyellow;
 }
+
+.dev-table{
+  display: table;
+  width: 40%;
+  margin: 0 auto;
+  border: 1px solid;
+}
+
+th,td {
+  border: 1px solid;
+}
