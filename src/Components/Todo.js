@@ -1,9 +1,6 @@
 import React,{Component} from 'react';
 import TodoListItem from './TodoListItem';
 export default class Todo extends Component{
-    constructor(props){
-        super(props);
-    }
     render(){
         let filteredTodos = this.props.todos.filter((todo) => {
             return todo.completed === false;

@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     componentDidMount(){
-        this.intervalID = setInterval(()=>{
+        this.intervalID = setInterval(() => {
             this.count++;
             if(this.count % 5 !== 0){
                 this.setState({
@@ -48,50 +48,3 @@ class App extends Component {
 
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
