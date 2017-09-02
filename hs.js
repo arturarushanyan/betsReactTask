@@ -15,7 +15,7 @@ let reducedTasks = tasks.reduce((stats,task) => {
 },{});
 
 let final = Object.keys(reducedTasks).map(function(key) {
-    return {assignee: key, doneTasks: reducedTasks[key]};
+    return { assignee: key, doneTasks: reducedTasks[key] };
 });
 
 
