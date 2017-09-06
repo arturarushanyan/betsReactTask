@@ -11,9 +11,14 @@ class App extends Component {
             todos : []
         };
         this.count = 0;
+        var arr = ['a','b','c'];
+        var arr1 = [...arr, ...arr[2]= 'e'];
+        console.log(arr1);
     }
 
     componentDidMount(){
+
+
         this.intervalID = setInterval(() => {
             this.count++;
             if(this.count % 5 !== 0){
@@ -22,12 +27,14 @@ class App extends Component {
                     }
                 );
             } else {
+                let completedTodo = this.state.todos[Math.floor(Math.random()*this.state.todos.length)];
+                console.log('completedTodo',completedTodo);
                 this.setState({
-                    todos: [...this.state.todos, ...this.state.todos[Math.floor(Math.random()*this.state.todos.length)].completed = true]
+                    todos: [...this.state.todos, ...completedTodo.completed = true]
                     });
             }
             console.log('state now',this.state);
-        },3000);
+        },1000);
 
     }
 

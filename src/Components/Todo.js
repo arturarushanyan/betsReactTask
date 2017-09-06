@@ -2,18 +2,13 @@ import React,{Component} from 'react';
 import TodoListItem from './TodoListItem';
 export default class Todo extends Component{
     render(){
-        let filteredTodos = this.props.todos.filter((todo) => {
-            return todo.completed === false;
-        }).sort((prev,next)=>{
-            return next.priority - prev.priority;
-        });
-
+        let todos = this.props.todos;
         return (
             <div>
                 {
-                    filteredTodos.map((todo) => {
+                    todos.map((todo,index) => {
                         return (
-                            <ul className={todo.priority === 2 ? 'high':  todo.priority === 1 ? 'medium' : ''} >
+                            <ul key={index} className={todo.priority === 2 ? 'high':  todo.priority === 1 ? 'medium' : ''} >
                                 <TodoListItem listValue={`Title: ${todo.title}`}/>
                                 <TodoListItem listValue={`Desicription: ${todo.desicription}`}/>
                                 <TodoListItem listValue={`TodoID: ${todo.id}`}/>

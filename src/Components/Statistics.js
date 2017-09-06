@@ -25,16 +25,15 @@ export default class Statistics extends Component{
                             <th>Tasks Done</th>
                         </tr>
                     {
-                        finalTodos.map((stat) => {
+                        finalTodos.map((stat,index) => {
                             return (
-                                <tr>
+                                <tr key={index}>
                                     <td>{stat.assignee}</td>
                                     <td>{stat.doneTasks}</td>
                                 </tr>
                             )
                         })
                     }
-
                 </tablle>
             </div>
         )
