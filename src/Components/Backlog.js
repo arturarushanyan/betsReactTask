@@ -4,17 +4,21 @@ import Todo from "./Todo";
 export default class Backlog extends Component{
     render(){
         let todos = this.props.todos;
+        // filtering todos that are NOT completed and sorting them
         let filteredTodos = todos.filter((todo) => {
             return todo.completed === false;
         }).sort((prev,next)=>{
             return next.priority - prev.priority;
         });
 
+
+        // filtering todos that are COMPLETED and sorting them
         let doneTodos = todos.filter((todo) => {
             return todo.completed === true;
         }).sort((prev,next)=>{
             return next.priority - prev.priority;
         });
+
         return (
             <div className="backlog">
                 <p>Backlog</p>
@@ -26,7 +30,6 @@ export default class Backlog extends Component{
                     <h3>Done</h3>
                     <Todo todos={doneTodos}/>
                 </div>
-
             </div>
         )
     }

@@ -17,24 +17,24 @@ class App extends Component {
         this.intervalID = setInterval(() => {
             this.count++;
             if(this.count % 5 !== 0){
+                //adding new todo to existing state
                 this.setState({
                     todos: [...this.state.todos, generateNewTodo()]
                     }
                 );
             } else {
-                let completedTodo = this.state.todos[Math.floor(Math.random()*this.state.todos.length)];
-                console.log('completedTodo',completedTodo);
+                // completing one todo from existing todos list an every 5th interval
                 this.setState((prevState) =>{
                     prevState.todos[Math.floor(Math.random()*this.state.todos.length)].completed = true;
                 })
             }
-            console.log('state now',this.state);
-        },1000);
+        },2000);
     }
 
     componentWillUnmount(){
         clearInterval(this.intervalID);
     }
+
   render() {
     return (
       <div className="App">
@@ -45,7 +45,5 @@ class App extends Component {
     );
   }
 }
-
-
 
 export default App;

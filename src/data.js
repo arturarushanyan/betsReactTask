@@ -1,3 +1,9 @@
+/*
+* @TodoDOC
+* @Desicription: Just a random data used in this app.
+* Array of objects. Every Dev has a fake name and ID
+ */
+
 let Developers =  [
     {
         name: "Artur",

@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 
 export default class Statistics extends Component{
     render(){
+        // filtering todos that are completed and reducing them to a different object
+        // where key is the assignee name and value is done task count {John:1,Doe:2}
         let filterCompletedTodos = this.props.todos.filter((todo) => {
             return todo.completed === true;
         }).reduce((stats,task) => {
@@ -11,10 +13,12 @@ export default class Statistics extends Component{
 
         },{});
 
+        // making an array of objects from the reduced object above
+        // don't know if it's the best solution, however I wanted to have a final array of objects
+        // for easily map through them in jsx....
         let finalTodos = Object.keys(filterCompletedTodos).map(function(key) {
             return { assignee: key, doneTasks: filterCompletedTodos[key] };
         });
-        console.log('from stats',filterCompletedTodos);
 
         return (
             <div className="statistics">
