@@ -5,7 +5,7 @@ export default class Backlog extends Component{
     render(){
         let todos = this.props.todos;
         // filtering todos that are NOT completed and sorting them
-        let filteredTodos = todos.filter((todo) => {
+        let notCompletedTodos = todos.filter((todo) => {
             return todo.completed === false;
         }).sort((prev,next)=>{
             return next.priority - prev.priority;
@@ -13,7 +13,7 @@ export default class Backlog extends Component{
 
 
         // filtering todos that are COMPLETED and sorting them
-        let doneTodos = todos.filter((todo) => {
+        let completedTodos = todos.filter((todo) => {
             return todo.completed === true;
         }).sort((prev,next)=>{
             return next.priority - prev.priority;
@@ -24,11 +24,11 @@ export default class Backlog extends Component{
                 <p>Backlog</p>
                 <div className="backlog-section">
                     <h3>To Do</h3>
-                    <Todo todos={filteredTodos}/>
+                    <Todo todos={notCompletedTodos}/>
                 </div>
                 <div className="backlog-section">
                     <h3>Done</h3>
-                    <Todo todos={doneTodos}/>
+                    <Todo todos={completedTodos}/>
                 </div>
             </div>
         )
